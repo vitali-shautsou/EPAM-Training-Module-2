@@ -20,8 +20,8 @@ Vagrant.configure("2") do |config|
     server2.vm.network "private_network", ip: "192.168.0.11"
 	server2.vm.provision "shell", inline: <<-SHELL
 	  if [[ ! -f "/usr/bin/git" ]]; then 
-        apt-get install git -y 
-      fi
+            apt-get install git -y 
+          fi
 	  if [[ ! -d "/home/vagrant/EPAM-Training-Module-2/" ]]; then 
 	    git clone git://github.com/vitali-shautsou/EPAM-Training-Module-2
 	  fi
@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
 	  cat test.txt
 	  if grep -q '192.168.0.10 server1.local' /etc/hosts; then :;
 	    else echo '192.168.0.10 server1.local' >> /etc/hosts;
-      fi
+          fi
     SHELL
   end
 end
